@@ -10,7 +10,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
-  <script src="/Website/cont.js"></script>
+  <script> function sendEmail() {
+  Email.send({
+    Host: "smtp.gmail.com",
+    Username: "stebinsteel@gmail.com",
+    Password: "stebinmathew",
+    To: 'stebinsteel@gmail.com',
+    From : document.getElementById("email").value,
+    Subject: "New Enquiry on Contact Form",
+    Body : "Name: " + document.getElementById("name").value
+          + "<br> Email: " + document.getElementById("email").value
+          + "<br> Message: " + document.getElementById("message").value
+  }).then(
+    message => {
+      if(message=='OK'){
+      alert('Your mail has been sent successfully. Thank You for Contacting Us. We will get back to you soon.');
+    }
+    else{
+      console.error (message);
+      alert('There is an error at sending message.Try checking your internet connectivity')
+    }
+    }
+  );
+}  </script>
+  
   <style>
   /* Google Font CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
